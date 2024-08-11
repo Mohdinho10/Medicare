@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
+import path from "path";
 import { notFound, errorHandler } from "./middleware/ErrorMiddleware.js";
 import userRoutes from "./routes/userRoutes.js";
 import doctorRoutes from "./routes/doctorRoutes.js";
@@ -34,6 +35,17 @@ app.use("/api/users", userRoutes);
 app.use("/api/doctors", doctorRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/bookings", bookingRoutes);
+
+// Serve static files
+if (process.env.NODE_ENV === "production") {
+  const __dirname = path.resolve();
+  // app.use(express.static(path.join(__dirname, "frontend", "dist"))); // Serve frontend build
+  app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
+  );
+}
 
 app.use(notFound);
 app.use(errorHandler);
