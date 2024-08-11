@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  section {
+    @apply py-[75px];
+  }
+}
+
+@layer components {
+  /* .container {
+    @apply mx-auto w-[1440px] max-w-full px-5;
+  } */
+  .container {
+    @apply mx-auto w-[1226px] max-w-full p-6;
+  }
+  .btn {
+    @apply mt-[38px] rounded-[50px] bg-primaryColor px-[35px] py-[15px] font-[600] text-white;
+  }
+  .heading {
+    @apply text-[44px] font-[700] leading-[54px] text-headingColor;
+  }
+  .text__para {
+    @apply mt-[18px] text-[18px] font-[400] leading-[30px] text-textColor;
+  }
+  .header {
+    @apply h-[100px] w-full bg-[url("./assets/images/mask.png")] bg-cover bg-center bg-no-repeat leading-[100px];
+  }
+  .hero__section {
+    @apply bg-[url('./assets/images/hero-bg.png')] bg-cover bg-center bg-no-repeat;
+  }
+  .form__label {
+    @apply mb-2 text-[16px] font-semibold leading-7 text-textColor;
+  }
+  .form__input {
+    @apply w-full cursor-pointer rounded-md border border-solid border-[#0066ff61] px-4 py-3 text-[16px] leading-7 text-headingColor placeholder:text-textColor focus:border-primaryColor focus:outline-none;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    @apply w-full;
+  }
+  section {
+    @apply py-[35px];
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .heading {
+    @apply text-[26px] leading-[36px];
+  }
+  .text__para {
+    @apply mt-3 text-[16px] leading-7;
+  }
+}
