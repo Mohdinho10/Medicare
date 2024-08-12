@@ -15,7 +15,7 @@ export function useUpdateUser() {
     mutationFn: async ({ userId, userData }) => {
       try {
         const { data: updatedUser } = await axios.put(
-          `${BASE_URL}/users/${userId}`,
+          `${BASE_URL}/api/users/${userId}`,
           userData,
           { withCredentials: true },
         );

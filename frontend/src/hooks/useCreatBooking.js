@@ -11,7 +11,7 @@ export function useCreateBooking() {
     mutationFn: async (doctorId) => {
       try {
         const { data } = await axios.post(
-          `${BASE_URL}/bookings/checkout-session/${doctorId}`,
+          `${BASE_URL}/api/bookings/checkout-session/${doctorId}`,
           {
             withCredentials: true,
           },

@@ -12,7 +12,11 @@ export function useLogout() {
   const { mutate: logout, isPending: isLogout } = useMutation({
     mutationFn: async () => {
       try {
-        await axios.post(`${BASE_URL}/users/logout`,{}, { withCredentials: true });
+        await axios.post(
+          `${BASE_URL}/api/users/logout`,
+          {},
+          { withCredentials: true },
+        );
         setUser(null);
       } catch (error) {
         console.log(error);

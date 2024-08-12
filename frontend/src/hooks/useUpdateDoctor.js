@@ -15,7 +15,7 @@ export function useUpdateDoctor() {
     mutationFn: async ({ doctorId, doctorData }) => {
       try {
         const { data: updatedDoctor } = await axios.put(
-          `${BASE_URL}/doctors/${doctorId}`,
+          `${BASE_URL}/api/doctors/${doctorId}`,
           doctorData,
           { withCredentials: true },
         );

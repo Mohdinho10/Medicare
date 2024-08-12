@@ -14,7 +14,7 @@ export function useGetBookings() {
     queryFn: async () => {
       try {
         const { data } = await axios.get(
-          `${BASE_URL}/users/appointments/my-appointments`,
+          `${BASE_URL}/api/users/appointments/my-appointments`,
           {
             withCredentials: true,
           },

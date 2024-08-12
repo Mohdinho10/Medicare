@@ -15,7 +15,7 @@ export function useGetProfile() {
     queryKey: ["user"],
     queryFn: async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/users/profile`, {
+        const response = await axios.get(`${BASE_URL}/api/users/profile`, {
           withCredentials: true,
         });
         // setData(response.data);

@@ -8,7 +8,7 @@ export function useGetDoctor(id) {
     queryKey: ["doctor", id],
     queryFn: async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/doctors/${id}`, {
+        const response = await axios.get(`${BASE_URL}/api/doctors/${id}`, {
           withCredentials: true,
         });
         console.log(response.data);
