@@ -15,14 +15,8 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.get("/", (res, req) => {
-  res.send("Api is running");
-});
-
 // middleware
-
 app.use(express.json());
-app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 // cookie parser middleware
 app.use(cookieParser());
@@ -41,7 +35,6 @@ app.use("/api/bookings", bookingRoutes);
 // Serve static files
 if (process.env.NODE_ENV === "production") {
   const __dirname = path.resolve();
-  // app.use(express.static(path.join(__dirname, "frontend", "dist"))); // Serve frontend build
   app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
   app.get("*", (req, res) =>
