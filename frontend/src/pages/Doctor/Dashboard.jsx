@@ -55,12 +55,17 @@ function Dashboard() {
                         />
                       </figure>
                       <div>
-                        <span className="lg:px06 rounded bg-[#ccf0f3] px-4 py-1 text-[12px] font-semibold leading-4 text-irisBlueColor lg:py-2 lg:text-[16px] lg:leading-6 ">
-                          {doctorData?.specialization}
-                        </span>
-                        <h3 className="mt-3 text-[22px] font-bold leading-9 text-headingColor ">
-                          {doctorData?.name}
-                        </h3>
+                        {doctorData?.specialization && (
+                          <span className="lg:px06 rounded bg-[#ccf0f3] px-4 py-1 text-[12px] font-semibold leading-4 text-irisBlueColor lg:py-2 lg:text-[16px] lg:leading-6 ">
+                            {doctorData?.specialization}
+                          </span>
+                        )}
+                        {doctorData?.name && (
+                          <h3 className="mt-3 text-[22px] font-bold leading-9 text-headingColor ">
+                            {doctorData?.name}
+                          </h3>
+                        )}
+
                         <div className="flex items-center gap-[6px] ">
                           <span className="flex items-center gap-[6px] text-[14px] font-semibold leading-5 text-headingColor lg:text-[16px] lg:leading-6 ">
                             <img src={starIcon} alt="star-rating" />

@@ -11,6 +11,7 @@ function DoctorAbout({ name, about, qualifications, experiences }) {
             {name}
           </span>
         </h3>
+
         <p className="text__para">{about}</p>
       </div>
 
