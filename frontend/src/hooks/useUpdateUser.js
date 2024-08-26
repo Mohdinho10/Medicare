@@ -24,6 +24,13 @@ export function useUpdateUser() {
         // console.log(userData);
       } catch (error) {
         console.log(error);
+        if (
+          error.response.data.message === "Not authorized, no token" ||
+          error.response.data.message === "Not authorized, token failed"
+        ) {
+          setUser(null);
+          navigate("/login", { replace: true });
+        }
         toast.error(error.response.data.message);
         throw error;
       }

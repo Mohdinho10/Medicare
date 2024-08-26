@@ -2,10 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 
 import axios from "axios";
 import { BASE_URL } from "../config";
+import { useUser } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 // import { useState } from "react";
 
 export function useGetProfile() {
-  //   const [data, setData] = useState([]);
+  const navigate = useNavigate();
+  const { setUser } = useUser();
 
   const {
     isPending,
@@ -23,6 +26,13 @@ export function useGetProfile() {
         return response.data;
       } catch (error) {
         console.log(error);
+        if (
+          error.response.data.message === "Not authorized, no token" ||
+          error.response.data.message === "Not authorized, token failed"
+        ) {
+          setUser(null);
+          navigate("/login", { replace: true });
+        }
       }
     },
   });

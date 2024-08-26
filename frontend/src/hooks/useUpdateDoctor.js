@@ -20,11 +20,16 @@ export function useUpdateDoctor() {
           { withCredentials: true },
         );
         setUser(updatedDoctor);
-        // console.log(updatedDoctor);
-        // console.log(doctorData);
       } catch (error) {
         console.log(error);
-        toast.error(error.response.data.message);
+        if (
+          error.response.data.message === "Not authorized, no token" ||
+          error.response.data.message === "Not authorized, token failed"
+        ) {
+          setUser(null);
+          navigate("/login", { replace: true });
+        }
+        // toast.error(error.response.data.message);
         throw error;
       }
     },
